@@ -1,0 +1,80 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class SwapK {
+	
+	   static LinkedListNode swapNodes(LinkedListNode pList, int iK) {
+	        if(pList == null) return null;
+	        LinkedListNode p1 = pList;
+	        LinkedListNode p2 = pList;
+	        LinkedListNode p3 = pList;
+	        int i = iK;
+	        while(i > 1){
+	            p1 = p1.next;
+	            p2 = p2.next;
+	            i--;
+	        }
+	        
+	        while(p2.next != null){
+	            p2 = p2.next;
+	            p3 = p3.next;
+	        }
+	        
+	        LinkedListNode k, kNext, lastK, lastKNext;
+	        k = p1.next;
+	        kNext = k.next;
+	        lastK = p3.next;
+	        lastKNext = lastK.next;
+	        
+	        //swapping 
+	        p1.next = lastK;
+	        lastK.next = kNext;
+	        
+	        p3.next = k;
+	        k.next = lastKNext;
+	        
+	        return pList;
+
+	    }
+	   
+	   public static void main(String[] args) throws IOException{
+	        Scanner in = new Scanner(System.in);
+	        final String fileName = System.getenv("OUTPUT_PATH");
+	        BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+	        LinkedListNode res;
+	        
+	        int _pList_size = 0;
+	        _pList_size = Integer.parseInt(in.nextLine());
+	        int _pList_i;
+	        int _pList_item;
+	        LinkedListNode _pList = null;
+	        LinkedListNode _pList_tail = null;
+	        for(_pList_i = 0; _pList_i < _pList_size; _pList_i++) { 
+	            _pList_item = Integer.parseInt(in.nextLine().trim());
+	            if(_pList_i == 0) {
+	        	_pList = _insert_node_into_singlylinkedlist(_pList, _pList_tail, _pList_item);
+	        	_pList_tail = _pList;
+	        }
+	        else {
+	        	_pList_tail = _insert_node_into_singlylinkedlist(_pList, _pList_tail, _pList_item);
+	        }
+	        }
+	        
+	        int _iK;
+	        _iK = Integer.parseInt(in.nextLine().trim());
+	        
+	        res = swapNodes(_pList, _iK);
+	        while (res != null) {
+	            bw.write(String.valueOf(res.val));
+	            bw.newLine();
+	            res = res.next;
+	        }
+	        
+	        bw.close();
+	    }
+
+
+
+}

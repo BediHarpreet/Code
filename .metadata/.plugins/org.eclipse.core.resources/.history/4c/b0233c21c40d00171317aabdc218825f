@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+
+public class RecursiveMergeSort {
+	
+	public static void main(String[] args){
+		int[] arr = {1,2,3,4,5,6};
+		ArrayList<Integer> val = new ArrayList<>();
+		val.add(1);
+		val.get(0);
+		String str = "Hello 1";
+		str.split(" ");
+	}
+
+}

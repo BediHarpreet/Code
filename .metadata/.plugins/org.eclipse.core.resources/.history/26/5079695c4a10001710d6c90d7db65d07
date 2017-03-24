@@ -1,0 +1,51 @@
+public class SwapK {
+
+	static LinkedListNode swapNodes(LinkedListNode pList, int iK) {
+		if (pList == null)
+			return null;
+		LinkedListNode p1 = pList;
+		LinkedListNode p2 = pList;
+		LinkedListNode p3 = pList;
+		int i = iK;
+
+		while (i > 1) {
+			p1 = p1.next;
+			p2 = p2.next;
+			i--;
+		}
+
+		while (p2.next != null) {
+			p2 = p2.next;
+			p3 = p3.next;
+		}
+
+		LinkedListNode k, kNext, lastK, lastKNext;
+		k = p1.next;
+		kNext = k.next;
+		lastK = p3.next;
+		lastKNext = lastK.next;
+
+		// swapping
+		p1.next = lastK;
+		lastK.next = kNext;
+
+		p3.next = k;
+		k.next = lastKNext;
+
+		return pList;
+
+	}
+
+	public static void main(String[] args) {
+		LinkedListNode n1 = new LinkedListNode(3);
+		LinkedListNode n2 = new LinkedListNode(1);
+		LinkedListNode n3 = new LinkedListNode(2);
+		LinkedListNode n4 = new LinkedListNode(0);
+		n1.next = n2;
+		n2.next = n3;
+		n3.next = n4;
+		swapNodes(n1, 1);
+
+	}
+
+}
