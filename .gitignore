@@ -1,13 +1,7 @@
-
-.metadata/.log
-
-.metadata/.log
-
-*.zip
-
-*.zip
-
+.metadata/*
 *.metadata
 *.index
 *.snap
 *.xmi
+
+*.zip
