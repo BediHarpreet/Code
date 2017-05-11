@@ -1,0 +1,6 @@
+#igrnore these files. 
+
+**/.gitignore
+*.metadata
+*.zip
+**.log
