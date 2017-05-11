@@ -4,3 +4,10 @@
 .metadata/.log
 
 *.zip
+
+*.zip
+
+*.metadata
+*.index
+*.snap
+*.xmi
