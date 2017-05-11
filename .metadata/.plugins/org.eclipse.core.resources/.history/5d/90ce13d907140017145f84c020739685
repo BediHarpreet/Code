@@ -1,0 +1,36 @@
+
+public class AddNumbers {
+
+	
+	static LinkedListNode addNumbers(LinkedListNode l1, LinkedListNode l2) {
+        int result = 0;
+        int mod = 1;
+        if(l1 == null) return l2;
+        if(l2 == null) return l1;
+        LinkedListNode resultNode = new LinkedListNode(0);
+        while(l1 != null){
+            result += l1.val * mod;
+            mod = 10 * mod;
+            l1 = l1.next;
+        }
+        mod = 1; //resetting mod;
+        while(l2 != null){
+            result += l2.val * mod;
+            mod = 10 * mod;
+            l2 = l2.next;
+        }
+        LinkedListNode copyResult = resultNode.next;
+        String str = Integer.toString(result);
+        for(int i = str.length() - 1; i >=0; i--){
+            copyResult= new LinkedListNode((Integer.valueOf(str.charAt(i))));
+            copyResult = copyResult.next;
+        }
+        return resultNode.next;
+    }
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,72 @@
+import java.io.*;
+
+
+
+
+
+public class CloneLinkedList {
+
+	public static LinkedListNode addClones(LinkedListNode node) {
+		LinkedListNode copy = node;
+		while (node != null) {
+			LinkedListNode clone = new LinkedListNode(node.val);
+			clone.next = node.next;
+			node.next = clone;
+			node = clone.next;
+		}
+		return copy.next;
+	}
+
+	public static void assignPointers(LinkedListNode node) {
+
+		while (node != null && node.next != null) {
+			node.next.random = node.random.next;
+			node = node.next.next;
+		}
+	}
+
+	public static void seperateNodes(LinkedListNode node) {
+		while (node != null && node.next != null) {
+			node.next = node.next.next;
+			node = node.next.next;
+		}
+	}
+
+	public static LinkedListNode cloneLinkedList(LinkedListNode node) {
+		LinkedListNode clone = addClones(node);
+		assignPointers(node);
+		seperateNodes(node);
+		seperateNodes(clone);
+		return clone;
+	}
+
+	public static void main(String args[]) throws Exception {
+		LinkedListNode n1 = new LinkedListNode(1);
+		LinkedListNode n2 = new LinkedListNode(2);
+		LinkedListNode n3 = new LinkedListNode(3);
+		LinkedListNode n4 = new LinkedListNode(4);
+		LinkedListNode n5 = new LinkedListNode(5);
+		LinkedListNode n6 = new LinkedListNode(6);
+		n1.next = n2;
+		n2.next = n3;
+		n3.next = n4;
+		n4.next = n5;
+		n5.next = n6;
+
+		n1.random = n3;
+		n2.random = n5;
+		n3.random = n1;
+		n4.random = n2;
+		n5.random = n6;
+		n6.random = n4;
+
+		LinkedListNode clone = cloneLinkedList(n1);
+		while (n1 != null) {
+			System.out.println(n1.val);
+			n1 = n1.next;
+		}
+	}
+	
+	
+}
+}

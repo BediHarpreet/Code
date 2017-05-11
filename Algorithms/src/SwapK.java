@@ -34,6 +34,9 @@ public class SwapK {
 		p3.next = k;
 		k.next = lastKNext;
 		
+		String str = "Hello";
+		str.length()
+		Integer.valueOf('5');
 		if(iK > 1)
 		return pList;
 		else return p1;
