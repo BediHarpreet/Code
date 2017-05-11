@@ -22,7 +22,6 @@ public class SwapK {
 		if (iK > 1) k = p1.next;
 		else k = p1;
 		kNext = k.next;
-		
 		lastK = p3.next;
 		lastKNext = lastK.next;
 
@@ -30,12 +29,8 @@ public class SwapK {
 		if(iK > 1) p1.next = lastK;
 		else p1 = lastK;
 		lastK.next = kNext;
-
 		p3.next = k;
 		k.next = lastKNext;
-		
-		String str = "Hello";
-		str.length()
 		Integer.valueOf('5');
 		if(iK > 1)
 		return pList;
